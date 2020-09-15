@@ -7,9 +7,10 @@ from time import sleep
 token = input('Ваш токен: ')
 id = int(input('Введите id. Id Чата вводить с "-" вначале: '))
 
+
 #отправка и мнгновенное удаление
 def chat_send(vk, chat_id, name_mass):
-    vk.messages.delete(message_ids=vk.messages.send(chat_id=chat_id, random_id=get_random_id(), message=f'{choice(name_mass)}'), delete_for_all=1)
+    vk.messages.delete(message_ids=vk.messages.send(chat_id=chat_id, random_id=get_random_id(), message=f'@{choice(name_mass)}'), delete_for_all=1)
 
 
 def peer_send(vk, user_id):
@@ -39,6 +40,6 @@ while running:
     except vk_api.exceptions.Captcha:
         print('Captcha Error.')
     #если неизвестная ошибка - он ее выводит
-    except:
-        print(exc_info()[0])
+    except Exception as e:
+        print(exc_info()[0], e)
     sleep(0.5)
