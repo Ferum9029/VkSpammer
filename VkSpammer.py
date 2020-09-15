@@ -10,7 +10,7 @@ id = int(input('Введите id. Id Чата вводить с "-" внача�
 
 #отправка и мнгновенное удаление
 def chat_send(vk, chat_id, name_mass):
-    vk.messages.delete(message_ids=vk.messages.send(chat_id=chat_id, random_id=get_random_id(), message=f'@{choice(name_mass)}'), delete_for_all=1)
+    vk.messages.delete(message_ids=vk.messages.send(chat_id=chat_id, random_id=get_random_id(), message=f'@id{choice(name_mass)}'), delete_for_all=1)
 
 
 def peer_send(vk, user_id):
